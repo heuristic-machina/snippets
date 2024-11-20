@@ -7,6 +7,9 @@ export default async function Home() {
     return (
       <div key={snippet.id}>
         {snippet.title}
+        <div>
+          {snippet.code}
+        </div>
       </div>
     )
   });
