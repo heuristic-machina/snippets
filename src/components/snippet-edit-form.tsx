@@ -1,4 +1,5 @@
 'use client'
+
 import Editor from '@monaco-editor/react';
 import type { Snippet } from '@prisma/client';
 
@@ -7,6 +8,9 @@ interface SnippetEditFormProps {
 }
 
 export default function SnippetEditForm({snippet}: SnippetEditFormProps) {
+    const handleEditorChange = (value: string ='') => {
+        console.log(value);
+    }
     return (
         // <div>
         //     Client Component has snippet with title {snippet.title}
@@ -18,6 +22,7 @@ export default function SnippetEditForm({snippet}: SnippetEditFormProps) {
                 language="javascript"
                 defaultValue={snippet.code}
                 options={{minimap: {enabled: false}}}
+                onChange={handleEditorChange}
             />
         </div>
     )
