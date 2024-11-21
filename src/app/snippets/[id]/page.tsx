@@ -24,5 +24,10 @@ export default async function SnippetShowPage(props: SnippetShowPageProps) {
     }
   
     // console.log(props);
-    return <div>{snippet.title}</div>
+    return (
+      <div>
+        <h1>{snippet.title}</h1>
+        {snippet.code}
+      </div>
+    )
 }
