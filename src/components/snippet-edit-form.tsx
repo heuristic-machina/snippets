@@ -17,6 +17,7 @@ export default function SnippetEditForm({snippet}: SnippetEditFormProps) {
                 theme='vs-dark'
                 language="javascript"
                 defaultValue={snippet.code}
+                options={{minimap: {enabled: false}}}
             />
         </div>
     )
