@@ -9,11 +9,11 @@ interface SnippetShowPageProps {
 
 export default async function SnippetShowPage(props: SnippetShowPageProps) {
     //create pause for loading.tsx feature
-    //delay 2 seconds
+    //delay 2 seconds for development only
     await new Promise((r) => setTimeout(r, 2000));
     const { id } = await props.params;
  
-    //url recognizes the query as a string but the idea is type int
+    //url recognizes the query as a string but the id is type int
     //parseInt used to remove error
     const snippet = await db.snippet.findFirst({
       where: { id: parseInt(id) },
@@ -26,8 +26,16 @@ export default async function SnippetShowPage(props: SnippetShowPageProps) {
     // console.log(props);
     return (
       <div>
-        <h1>{snippet.title}</h1>
-        {snippet.code}
+        <div className='flex m-4 justify-between items-center'>
+          <h1 className='text-xl font-bold'>{snippet.title}</h1>
+        </div>
+        <div className='flex gap-4'>
+          <button className='p-2 border rounded'>Edit</button>
+          <button className='p-2 border rounded'>Delete</button>
+        </div>
+        <pre className='p-3 border rounded bg-gray-900 border-gray-200'>
+          <code>{snippet.code}</code>
+        </pre>
       </div>
     )
 }
