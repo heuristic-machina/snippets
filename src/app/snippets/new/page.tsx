@@ -34,10 +34,12 @@ export default function SnippetCreatePage() {
             </div>
 
             <div>
-                {formState.message}
+                {/* {formState.message} */}
+                {/* if formState message is defined then show message but if formState is an empty string or not defined show null*/}
+                {formState.message ? <div className="my-2 p-2 bg-red-900 border rounded border-red-200">{formState.message}</div> : null}
             </div>
 
-            <button type='submit' className="border rounded p-2 bg-blue-200">
+            <button type='submit' className="border rounded p-2 bg-blue-900">
                 Create
             </button>
         </div>
