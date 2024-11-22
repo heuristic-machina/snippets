@@ -37,9 +37,10 @@ export default async function SnippetShowPage(props: SnippetShowPageProps) {
           <Link href={`/snippets/${snippet.id}/edit`}
           className='p-2 border rounded'
           >Edit</Link>
-          <button onClick={deleteSnippetAction}
-          className='p-2 border rounded'>Delete</button>
-        </div>
+          <form action={deleteSnippetAction}>
+            <button className='p-2 border rounded'>Delete</button>
+          </form>
+          </div>
         <pre className='p-3 border rounded bg-gray-900 border-gray-200'>
           <code>{snippet.code}</code>
         </pre>
