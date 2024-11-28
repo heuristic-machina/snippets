@@ -13,6 +13,7 @@ export async function editSnippet(id: number, code: string) {
         where: { id },
         data: { code }
     })
+    revalidatePath(`/snippets/${id}`);
     //code to redirect user
     redirect(`/snippets/${id}`);
 }
