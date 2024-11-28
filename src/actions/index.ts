@@ -1,6 +1,8 @@
 'use server'
+
 import { db } from '@/db';
 import { redirect } from 'next/navigation';
+import { revalidatePath } from 'next/cache';
 
 export async function editSnippet(id: number, code: string) {
     //wire up to client
@@ -19,6 +21,7 @@ export async function deleteSnippet(id: number) {
     await db.snippet.delete({
         where: {id}
     });
+    revalidatePath('/');
     redirect('/');
 }
 
@@ -62,7 +65,7 @@ export async function createSnippet(formState: {message: string}, formData: Form
         }
    
 
-
+    revalidatePath('/');
     //redirect user back to root route
     redirect('/');
 }

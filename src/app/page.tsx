@@ -2,7 +2,8 @@
 import Link from 'next/link';
 import { db } from '@/db';
 
-export const dynamic = 'force-dynamic';
+//disables caching completely
+// export const dynamic = 'force-dynamic';
 
 export default async function Home() {
   const snippets = await db.snippet.findMany();
